@@ -1,0 +1,72 @@
+public class QueueLL {
+  private Node front; // front of the queue
+  private Node rear; // rear of the queue
+
+  private static class Node {
+    String data;
+    Node next;
+
+    Node(String data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
+
+  public void enqueue(String data) {
+    Node newNode = new Node(data);
+
+    if (rear == null) {
+      front = newNode;
+      rear = newNode;
+    } else {
+      rear.next = newNode;
+      rear = newNode;
+    }
+  }
+
+  public String dequeue() {
+    if (front == null) {
+      System.out.println("Empty Queue");
+      return null;
+    }
+
+    String data = front.data;
+    front = front.next;
+
+    if (front == null) {
+      rear = null; // If front becomes null, set rear to null as well
+    }
+
+    return data;
+  }
+
+  public boolean isEmpty() {
+    return front == null;
+  }
+
+  public void traverse() {
+    if (front == null) {
+      System.out.println("Empty Queue");
+      return;
+    }
+
+    Node currNode = front;
+
+    while (currNode != null) {
+      System.out.print(currNode.data + " <-- ");
+      currNode = currNode.next;
+    }
+    System.out.print("NULL");
+  }
+
+  public static void main(String[] args) {
+    QueueLL queue = new QueueLL();
+
+    queue.enqueue("Google");
+    queue.enqueue("Apple");
+    queue.enqueue("Microsoft");
+
+    System.out.println("Dequeued item: " + queue.dequeue());
+    queue.traverse();
+  }
+}
