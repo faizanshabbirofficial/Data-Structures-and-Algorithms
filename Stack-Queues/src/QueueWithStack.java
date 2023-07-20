@@ -1,100 +1,69 @@
 public class QueueWithStack {
 
-  QueueWithStack top;
-  String[] stack;
-  int length;
-  int size;
+  private ArrayStack inputStack;
+  private ArrayStack outputStack;
+  private int size;
 
-  QueueWithStack(int size) {
-    this.stack = new String[size];
-    this.top = null;
-    this.length = -1;
+  public QueueWithStack(int size) {
+    this.inputStack = new ArrayStack(size);
+    this.outputStack = new ArrayStack(size);
     this.size = size;
   }
 
-  public void push(String data) {
-
-    if (this.length == size) {
-      System.out.println("Stack Full");
+  public void enqueue(String data) {
+    if (inputStack.length == size) {
+      System.out.println("Queue Full");
       return;
-    } else {
-      length++;
-      stack[length] = data;
     }
-
+    inputStack.push(data);
   }
 
-  public String pop() {
-    if (this.length == -1) {
-      System.out.println("Stack Empty");
-      return null;
-    }
-    String temp = stack[length];
-    stack[length] = null;
-    length--;
-
-    return temp;
-
-  }
-
-  public String peek() {
-
-    if (this.length == -1) {
-      System.out.println("Stack Empty");
+  public String dequeue() {
+    if (isEmpty()) {
+      System.out.println("Queue Empty");
       return null;
     }
 
-    System.out.println(stack[length]);
+    if (outputStack.isEmpty()) {
+      while (!inputStack.isEmpty()) {
+        outputStack.push(inputStack.pop());
+      }
+    }
 
-    return stack[length];
-
+    return outputStack.pop();
   }
 
-  public void traverseAll() {
-
-    if (this.length == -1) {
-      System.out.println("Stack Empty");
-      return;
-    }
-
-    for (String string : stack) {
-      System.out.println(string);
-
-    }
-
+  public boolean isEmpty() {
+    return inputStack.isEmpty() && outputStack.isEmpty();
   }
 
   public void traverse() {
-    if (this.length == -1) {
-      System.out.println("Stack Empty");
+    if (isEmpty()) {
+      System.out.println("Queue Empty");
       return;
     }
 
-    for (int i = 0; i <= length; i++) {
-      System.out.println(stack[i]);
+    System.out.print("Queue: ");
+    for (int i = 0; i <= inputStack.length; i++) {
+      System.out.print(inputStack.stack[i] + " ");
     }
+
+    for (int i = outputStack.length; i >= 0; i--) {
+      System.out.print(outputStack.stack[i] + " ");
+    }
+    System.out.println();
   }
 
   public static void main(String[] args) {
+    QueueWithStack queue = new QueueWithStack(5);
 
-    QueueWithStack stack = new QueueWithStack(5);
-    stack.push("Pakistan");
-    stack.push("USA");
-    stack.push("UK");
-    stack.push("Canada");
-    stack.push("China");
+    queue.enqueue("Google");
+    queue.enqueue("Apple");
+    queue.enqueue("Microsoft");
 
-    stack.peek();
+    queue.traverse();
 
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-
-    stack.traverse();
-
+    System.out.println("Dequeued item: " + queue.dequeue());
+    queue.traverse();
   }
-
 }

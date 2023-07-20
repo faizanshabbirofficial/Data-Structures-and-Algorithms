@@ -75,6 +75,10 @@ public class ArrayStack {
     }
   }
 
+  public boolean isEmpty() {
+    return length == -1;
+  }
+
   public static void main(String[] args) {
 
     ArrayStack stack = new ArrayStack(5);

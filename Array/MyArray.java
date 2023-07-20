@@ -19,9 +19,6 @@
 //
 //}
 
-
-
-
 //public class MyArray {
 //  public static void main(String[] args) {
 //
@@ -46,8 +43,6 @@
 //  }
 //}
 
-
-
 //public class MyArray {
 //  public static String reverseString(String text) {
 //    int length  = text.length();
@@ -64,7 +59,6 @@
 //    System.out.println(reversedText);
 //  }
 //}
-
 
 //public class MyArray {
 //  public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
@@ -112,9 +106,6 @@
 //  }
 //}
 
-
-
-
 //public class MyArray {
 //  public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
 //    int length = arr1.length + arr2.length;
@@ -160,10 +151,6 @@
 //    }
 //  }
 //}
-
-
-
-
 
 //public class MyArray {
 //  public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
@@ -213,8 +200,6 @@
 //  }
 //}
 
-
-
 public class MyArray {
   public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
     int length = arr1.length + arr2.length;
@@ -246,8 +231,8 @@ public class MyArray {
   }
 
   public static void main(String[] args) {
-    int[] arr1 = {0, 3, 4, 31};
-    int[] arr2 = {4, 6, 30};
+    int[] arr1 = { 0, 3, 4, 31 };
+    int[] arr2 = { 4, 6, 30 };
     int[] mergedArray = mergeSortedArrays(arr1, arr2);
 
     for (int j : mergedArray) {
@@ -255,7 +240,3 @@ public class MyArray {
     }
   }
 }
-
-
-
-
