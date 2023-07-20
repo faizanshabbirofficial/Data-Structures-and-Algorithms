@@ -1,41 +1,5 @@
 public class MaxSubArray {
 
-  // public static int MaxSub(int[] arr) {
-
-  // int currentMaxSum = 0;
-  // int maxSum = 0;
-
-  // for (int i : arr) {
-  // currentMaxSum = currentMaxSum + i;
-  // System.out.println(currentMaxSum);
-  // if (currentMaxSum > maxSum) {
-  // maxSum = currentMaxSum;
-  // System.out.println(maxSum);
-
-  // }
-  // if (currentMaxSum < maxSum) {
-  // currentMaxSum = 0;
-  // System.out.println(currentMaxSum);
-
-  // }
-
-  // }
-  // return maxSum;
-
-  // }
-
-  // public static int maxSub(int[] arr) {
-  // int currentMaxSum = arr[0]; // Initialize with the first element
-  // int maxSum = arr[0]; // Initialize with the first element
-
-  // for (int i = 1; i < arr.length; i++) {
-  // currentMaxSum = Math.max(arr[i], currentMaxSum + arr[i]);
-  // maxSum = Math.max(maxSum, currentMaxSum);
-  // }
-
-  // return maxSum;
-  // }
-
   public static int maxSub(int[] arr) {
     int currentMaxSum = arr[0]; // Initialize with the first element
     int maxSum = arr[0]; // Initialize with the first element
@@ -66,25 +30,6 @@ public class MaxSubArray {
 
     return maxSum;
   }
-
-  // public static int maxSub(int[] arr) {
-  // int currentMaxSum = 0;
-  // int maxSum = 0;
-
-  // for (int i : arr) {
-  // if (i > currentMaxSum + i) {
-  // currentMaxSum = i;
-  // } else {
-  // currentMaxSum += i;
-  // }
-
-  // if (currentMaxSum > maxSum) {
-  // maxSum = currentMaxSum;
-  // }
-  // }
-
-  // return maxSum;
-  // }
 
   public static void main(String[] args) {
 
