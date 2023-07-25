@@ -44,8 +44,10 @@ public class BinaryTree {
       } else {
         System.out.println("Invalid choice. Node not inserted.\n");
       }
+      scanner.close();
       return root;
     }
+
   }
 
   void inOrder(Node root) {
